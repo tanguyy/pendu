@@ -18,7 +18,7 @@ sub afficher_pendu {
 }
 			 
 sub comparetab {
-# me sert à voir si toutes les lettres ont été trouvées
+# me sert ï¿½ voir si toutes les lettres ont ï¿½tï¿½ trouvï¿½es
     my ($result,$i) = (0,0);
 	
     for my $lettre (@mot)
@@ -35,14 +35,15 @@ sub jeu {
 	
 	if(grep {$_ eq $lettre} @mot) #on recherche si la lettre est dans le tableau.
 	{
-	    # pour la condition : on boucle tant que $mot[$i] existe, c'est à dire jusqu'à la dernière lettre !
+	    # pour la condition : on boucle tant que $mot[$i] existe, c'est ï¿½ dire jusqu'ï¿½ la derniï¿½re lettre !
 	    for(my $i = 0; defined($mot[$i]); $i++)
 		{
 		    $mot_mystere[$i] = $mot[$i] if($mot[$i] eq $lettre);
 		}
 	}
 	
-	else { print "FAUX !\n" && return 0; }
+	else { print "FAUX !\n";
+               return 0; }
 	
 	print @mot_mystere;
 	print "\n";
@@ -61,10 +62,10 @@ sub tirer_mot {
 my ($mot,$coups) = (tirer_mot(),0);
 my $lettre;
 
-@mot = split(//,uc($mot)); # on décompose le mot dans un tableau de lettres
+@mot = split(//,uc($mot)); # on dï¿½compose le mot dans un tableau de lettres
 @mot_mystere = split(//, "*" x scalar(@mot));
 
-print "Mot généré : @mot_mystere";
+print "Mot gï¿½nï¿½rï¿½ : @mot_mystere";
 
 while($coups < 15 && !comparetab())
 {
@@ -75,5 +76,5 @@ while($coups < 15 && !comparetab())
 	afficher_pendu($coups++) if(!jeu(uc($lettre)));
 }
 
-print "\nJe suis déjà mort ! Dommage !" if $coups >= 15;
-print "\nBravo ! vous avez gagné !" if (comparetab());
+print "\nJe suis dï¿½jï¿½ mort ! Dommage !" if $coups >= 15;
+print "\nBravo ! vous avez gagnï¿½ !" if (comparetab());
