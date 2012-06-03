@@ -42,7 +42,8 @@ sub jeu {
 		}
 	}
 	
-	else { print "FAUX !\n" && return 0; }
+	else { print "FAUX !\n";
+           return 0; }
 	
 	print @mot_mystere;
 	print "\n";
